@@ -9,13 +9,17 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                log.info 'Downloading repository'
+                script {
+                    log.info 'Downloading repository'
+                }
             }
         }
         stage('Building pipelines') {
             steps {
-                log.info 'Building pipelines...'
-                jobDsl targets: "dsl-jobs/"
+                script {
+                    log.info 'Building pipelines...'
+                    jobDsl targets: "dsl-jobs/"
+                }
             }
         }
     }
