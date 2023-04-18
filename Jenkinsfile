@@ -7,12 +7,13 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Hello World'
+                log.info 'Downloading repository'
             }
         }
         stage('Building pipelines') {
             steps {
-                echo 'Building pipelines...'
+                log.info 'Building pipelines...'
+                jobDsl targets: "dsl-jobs/"
             }
         }
     }
